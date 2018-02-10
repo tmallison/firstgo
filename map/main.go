@@ -11,7 +11,7 @@ func main() {
 
 	fmt.Println(colors["red"])
 
-	delete(colors, "blue")
+	delete(colors, "green")
 
 	fmt.Println(colors)
 }
