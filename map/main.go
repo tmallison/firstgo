@@ -9,7 +9,7 @@ func main() {
 		"blue": "#0000ff",
 	}
 
-	fmt.Println(colors["green"])
+	fmt.Println(colors["red"])
 
 	delete(colors, "blue")
 
