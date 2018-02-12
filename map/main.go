@@ -9,9 +9,12 @@ func main() {
 		"blue": "#0000ff",
 	}
 
-	fmt.Println(colors["red"])
-
-	delete(colors, "green")
-
-	fmt.Println(colors)
+	printMap(colors)
 }
+
+func printMap(c map[string]string){
+	for color, hex := range c{
+		fmt.Println(color, "is", hex)
+	}
+}
+
