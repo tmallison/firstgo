@@ -20,15 +20,15 @@ func main() {
 		go checkLink(url, c)
 	}
 
-	for {
-		go checkLink(<-c, c)
+	for l := range c {
+		go checkLink(l, c)
 	}
 }
 
 func checkLink(url string, c chan string) {
-	_, error := http.Get(url)
+	_, err := http.Get(url)
 
-	if error != nil {
+	if err != nil {
 		fmt.Println(url, "might be down I think")
 		c <- url
 		return
