@@ -2,14 +2,35 @@ package main
 
 import "fmt"
 
-func main() {
-	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+type shape interface {
+	getArea() float64
+}
 
-	for _, num := range numbers {
-		if num%2 == 0 {
-			fmt.Println(num, "is even")
-		}else{
-			fmt.Println(num, "is uneven")
-		}
-	}
+type triangle struct {
+	height float64
+	base float64
+}
+
+type square struct {
+	sideLength float64
+}
+
+func main() {
+	t := triangle{30.5, 26}
+	s := square{50}
+
+	printArea(t)
+	printArea(s)
+}
+
+func (s square) getArea() float64 {
+	return s.sideLength * s.sideLength
+}
+
+func (t triangle) getArea() float64 {
+	return 0.5 * t.base * t.height
+}
+
+func printArea(s shape) {
+	fmt.Println(s.getArea())
 }
